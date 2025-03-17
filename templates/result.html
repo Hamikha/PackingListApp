@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    <section class="result-container">
+        <h2>Your Packing List</h2>
+        <p class="trip-info">For a {{ duration }} {{ trip_type }} trip with {{ weather }} weather:</p>
+        <div class="list-section">
+            <h3>Essentials</h3>
+            <ul>
+                {% for item in packing_list.essentials %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="list-section">
+            <h3>Optional</h3>
+            <p>{{ packing_list.optional.item }} - <span>{{ packing_list.optional.reason }}</span></p>
+        </div>
+        <a href="{{ url_for('index') }}" class="btn">Create Another List</a>
+    </section>
+{% endblock %}
